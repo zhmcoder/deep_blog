@@ -1,6 +1,6 @@
 {
     "name": "Andruby/deep-blog",
-    "description": "开箱即用的全功能后台扩展",
+    "description": "简单的blog，首页使用grid的瀑布流实现展示，内容使用的markdown进行展示。",
     "license": "MIT",
     "authors": [
         {
