@@ -2,7 +2,6 @@
 
 namespace Andruby\DeepBlog;
 
-use Illuminate\Support\Arr;
 use Illuminate\Support\ServiceProvider;
 use SmallRuralDog\Admin\Admin;
 
@@ -52,8 +51,8 @@ class BlogServiceProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__ . '/../resources/views/mero', 'Mero');
 
         $this->loadRoutesFrom(__DIR__ . '/../routes/route.php');
-        Admin::script('deep-admin', __DIR__.'/../dist/js/extend.js');
-        Admin::style('deep-admin', __DIR__.'/../dist/css/extend.css');
+//        Admin::script('deep-admin', __DIR__.'/../dist/js/extend.js');
+//        Admin::style('deep-admin', __DIR__.'/../dist/css/extend.css');
 
         if (file_exists($routes = app_path('Api') . '/routes.php')) {
             $this->loadRoutesFrom($routes);
@@ -85,9 +84,9 @@ class BlogServiceProvider extends ServiceProvider
     {
         if ($this->app->runningInConsole()) {
             $this->publishes([__DIR__ . '/../config' => config_path()], 'deep-blog-config');
-            $this->publishes([__DIR__ . '/../resources/lang' => resource_path('lang')], 'deep-blog-lang');
-            $this->publishes([__DIR__ . '/../database/migrations' => database_path('migrations')], 'deep-blog-migrations');
-            $this->publishes([__DIR__ . '/../dist' => public_path('vendor/deep-blog')], 'deep-blog-assets');
+//            $this->publishes([__DIR__ . '/../resources/lang' => resource_path('lang')], 'deep-blog-lang');
+//            $this->publishes([__DIR__ . '/../database/migrations' => database_path('migrations')], 'deep-blog-migrations');
+//            $this->publishes([__DIR__ . '/../dist' => public_path('vendor/deep-blog')], 'deep-blog-assets');
         }
     }
 
