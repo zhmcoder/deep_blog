@@ -25,7 +25,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Andruby\\DeepBLog\\": "src/"
+            "Andruby\\DeepBlog\\": "src/"
         },
         "files": [
             "src/helpers.php"
