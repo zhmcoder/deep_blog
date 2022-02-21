@@ -4,6 +4,7 @@ namespace Andruby\DeepBlog\Controllers;
 
 use Andruby\DeepBlog\BlogRepository;
 use Andruby\DeepBlog\Models\Article;
+use Andruby\DeepBlog\Models\Category;
 use Andruby\DeepBlog\Services\ArticleService;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -91,6 +92,7 @@ class BlogController extends Controller
 
     public function category(Request $request, $cat_id, $pageIndex = 1)
     {
+        $title = Category::query()->where('id',$cat_id)->value('title');
         $articles = ArticleService::instance()->cat_lists($cat_id);
 
         $page = $this->page($pageIndex, $cat_id);
@@ -98,6 +100,7 @@ class BlogController extends Controller
         return view('Mero::index', array_merge($this->common_data,
             [
                 'articles' => $articles,
+                'title' => $title,
                 'page' => $page,
                 'show_404' => count($articles) > 0 ? '0' : '1'
             ]));
@@ -129,6 +132,7 @@ class BlogController extends Controller
 
         return view('Mero::detail', array_merge($this->common_data, [
             'article' => $article,
+            'title' => $article['title'],
             'show_404' => $show_404,
             'next' => $next,
             'pre' => $pre
