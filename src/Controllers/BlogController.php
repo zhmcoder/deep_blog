@@ -48,7 +48,7 @@ class BlogController extends Controller
     public function index(Request $request, $pageIndex = 1)
     {
         $articles = ArticleService::instance()
-            ->lists($pageIndex, config('deep_blog.page_num', 15));
+            ->lists($pageIndex, config('deep_blog.home_page_num', 15));
 
         $page = $this->page($pageIndex);
 
@@ -63,7 +63,7 @@ class BlogController extends Controller
     private function page($pageIndex, $cat_id = null)
     {
         $total_page = ArticleService::instance()
-            ->totalPage(config('deep_blog.page_num', 15), $cat_id);
+            ->totalPage(config('deep_blog.home_page_num', 15), $cat_id);
 
         $page['current'] = $pageIndex;
         if ($total_page > 0) {
