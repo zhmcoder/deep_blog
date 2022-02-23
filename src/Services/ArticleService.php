@@ -86,19 +86,7 @@ class ArticleService
             ->with('category')
             ->forPage($pageIndex, $pageSize)
             ->get();
-        $articles = [];
-        foreach ($article_list as $item) {
-            $article['id'] = $item['id'];
-            $article['category'] = rand(0, 1) ? ['id' => 1, 'title' => '美食'] : ['id' => 2, 'title' => '运动'];
-            $article['updated_time'] = date('Y-m-d', strtotime($item['updated_at']));
-            $article['author'] = $item['author'];
-            $article['title'] = $item['title'];
-            $article['summary'] = '想要地道口语?来百度翻译app体验专业发音测评！想要地道口语?来百度翻译app体验专业发音测评！';
-            $article['thumb'] = http_path($item['thumb']);
-            $articles[] = $article;
-            $articles[] = $article;
-        }
-        return $articles;
+        return $this->handle_article($article_list);
     }
 
     public function cat_lists($cat_id, $pageIndex = 1, $pageSize = 20)
@@ -107,17 +95,22 @@ class ArticleService
             ->with('author')
             ->where('category_id', $cat_id)
             ->orderBy('updated_at', 'desc')
+            ->forPage($pageIndex, $pageSize)
             ->get();
+        return $this->handle_article($article_list);
+    }
+
+    private function handle_article($article_list)
+    {
         $articles = [];
         foreach ($article_list as $item) {
             $article['id'] = $item['id'];
-            $article['category'] = rand(0, 1) ? ['id' => 1, 'title' => '美食'] : ['id' => 2, 'title' => '运动'];
+            $article['category'] = $item['category'];
             $article['updated_time'] = date('Y-m-d', strtotime($item['updated_at']));
             $article['author'] = $item['author'];
             $article['title'] = $item['title'];
-            $article['summary'] = '想要地道口语?来百度翻译app体验专业发音测评！想要地道口语?来百度翻译app体验专业发音测评！';
+            $article['summary'] = $item['summary'];
             $article['thumb'] = http_path($item['thumb']);
-            $articles[] = $article;
             $articles[] = $article;
         }
         return $articles;
