@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="profile" href="https://gmpg.org/xfn/11">
 
-    <title>{{ empty($title)?'':($title.' |') }} {{ config('deep_blog.blog_name') }} </title>
+    <title>{{ empty($title)?'':($title.' |') }} {{ config('deep_blog.blog_name') }}{{ empty(config('deep_blog.blog_title_suffix'))?'':(' |'.config('deep_blog.blog_title_suffix')) }} </title>
     <meta name="robots" content="max-image-preview:large">
     <link rel="dns-prefetch" href="https://fonts.googleapis.com/">
     <link rel="dns-prefetch" href="https://s.w.org/">
@@ -134,6 +134,7 @@
             background-color: #000000
             border-color: #000000
         }
+
         .site-title a,
         .site-description {
             color: #ffffff;
@@ -347,11 +348,13 @@
         .page-title {
             font-size: 32px;
         }
-        .error404 #primary,.has-sidebar.error404 #primary{
+
+        .error404 #primary, .has-sidebar.error404 #primary {
             width: 70%;
             float: left;
         }
-        .has-sidebar #secondary{
+
+        .has-sidebar #secondary {
             float: right;
         }
 
