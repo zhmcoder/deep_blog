@@ -45,7 +45,7 @@ class InstallCommand extends Command
 //            '--tag' => ['deep-docs-views'], '--force' => 'true']);
 
         $this->info('DeepBlog successfully installed! Enjoy 😍');
-        $this->info('Visit http://host and http://host/dadamin in your browser 👻');
+        $this->info('Visit http://host and http://host/' . config('admin.route.prefix') . ' in your browser 👻');
     }
 
     /**
