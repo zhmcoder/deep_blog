@@ -2,19 +2,16 @@
 
 namespace Andruby\DeepBlog;
 
+use Andruby\DeepBlog\Commands\InstallCommand;
 use Illuminate\Support\ServiceProvider;
 use SmallRuralDog\Admin\Admin;
 
 class BlogServiceProvider extends ServiceProvider
 {
 
-//    protected $commands = [
-//
-//        Console\InstallCommand::class,
-//        Console\FormItemCommand::class,
-//        Console\ExtendCommand::class,
-//
-//    ];
+    protected $commands = [
+        InstallCommand::class
+    ];
 //
 //    protected $routeMiddleware = [
 //        'admin.auth' => Middleware\Authenticate::class,
@@ -74,8 +71,9 @@ class BlogServiceProvider extends ServiceProvider
 
         $this->registerRouteMiddleware();
 
-//        $this->commands($this->commands);
-
+        if ($this->app->runningInConsole()) {
+            $this->commands($this->commands);
+        }
 
     }
 
