@@ -17,7 +17,7 @@ class InstallCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'deep_docs:install';
+    protected $signature = 'deep_blog:install';
 
     /**
      * The console command description.
