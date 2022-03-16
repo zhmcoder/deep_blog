@@ -33,8 +33,7 @@ class InstallCommand extends Command
      */
     public function handle()
     {
-        $this->line('Publishing assets and congigurations.. 🍪');
-        $this->call('vendor:publish', ['--provider' => AdminServiceProvider::class]);
+        $this->line('Publishing assets and configurations.. 🍪');
         $this->call('vendor:publish', ['--provider' => \Andruby\DeepAdmin\AdminServiceProvider::class]);
 
         $this->call('vendor:publish', ['--provider' => LaRecipeServiceProvider::class, '--tag' => ['larecipe_assets', 'larecipe_config', 'larecipe_views']]);
