@@ -8,7 +8,6 @@ use Andruby\DeepBlog\Models\Category;
 use Andruby\DeepBlog\Services\ArticleService;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use SmallRuralDog\Admin\Facades\Admin;
 
 
 class BlogController extends Controller
