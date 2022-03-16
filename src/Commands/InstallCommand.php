@@ -3,11 +3,7 @@
 namespace Andruby\DeepBlog\Commands;
 
 use Andruby\DeepBlog\BlogServiceProvider;
-use Andruby\DeepDocs\DocsServiceProvider;
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\Artisan;
-use SmallRuralDog\Admin\AdminServiceProvider;
-use Symfony\Component\Process\Process;
 use BinaryTorch\LaRecipe\LaRecipeServiceProvider;
 
 class InstallCommand extends Command
