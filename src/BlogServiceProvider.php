@@ -4,7 +4,7 @@ namespace Andruby\DeepBlog;
 
 use Andruby\DeepBlog\Commands\InstallCommand;
 use Illuminate\Support\ServiceProvider;
-use SmallRuralDog\Admin\Admin;
+use Andruby\DeepAdmin\Admin;
 
 class BlogServiceProvider extends ServiceProvider
 {
