@@ -3,8 +3,19 @@
 use Illuminate\Routing\Router;
 
 Route::group([
+    'domain' => config('deep_admin.route.domain'),
+    'prefix' => config('deep_admin.route.api_prefix'),
+    'namespace' => '\Andruby\DeepBlog\Controllers',
+    'middleware' => config('deep_admin.route.middleware')
+], function (Router $router) {
+
+    //文章管理
+    $router->resource('articles', 'ArticleController');
+
+});
+
+Route::group([
     'domain' => config('deep_blog.route.domain'),
-    'prefix' => config('deep_blog.route.api_prefix'),
     'namespace' => '\Andruby\DeepBlog\Controllers',
     'middleware' => config('deep_blog.route.middleware')
 ], function (Router $router) {
