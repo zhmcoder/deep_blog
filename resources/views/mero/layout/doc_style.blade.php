@@ -1175,6 +1175,13 @@
 
     .documentation h2 {
         margin-left: 15px;
+        margin-top:1rem;
+        margin-bottom:1rem;
+        font-weight:700;
+        font-size: 28px;
+    }
+    .documentation h2 a:before {
+        font-size: 1.3rem !important;
     }
 
     .documentation > ul li h2 {
